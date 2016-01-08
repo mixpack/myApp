@@ -15,6 +15,10 @@ angular.module('starter.controllers', [])
   $scope.remove = function(chat) {
     Chats.remove(chat);
   };
+
+  $scope.button = function(product) {
+    console.log('button was clicked' product);
+  };
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
