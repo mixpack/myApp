@@ -16,8 +16,8 @@ angular.module('starter.controllers', [])
     Chats.remove(chat);
   };
 
-  $scope.button = function(product) {
-    console.log('button was clicked' product);
+  $scope.button = function(product){
+    console.log('button was clicked', product);
   };
 })
 
