@@ -16,9 +16,11 @@ angular.module('starter.controllers', [])
     Chats.remove(chat);
   };
 
-  $scope.button = function(product){
-    console.log('button was clicked', product);
-  };
+    $scope.image = 'https://img0.etsystatic.com/137/1/9909774/il_570xN.898927752_abo6.jpg';
+
+    $scope.button = function(product){
+      console.log('button was clicked', product, $scope.image);
+    }
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
