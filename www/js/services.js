@@ -54,6 +54,11 @@ angular.module('starter.services', [])
   var products = $firebaseArray(ref.child('products'));
 
   var Products = {
+    all: function(){
+      return products;
+    },
+
+
     saveProduct: function(product, image){
       var newProduct = {
         name: product.name,
