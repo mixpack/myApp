@@ -1,36 +1,42 @@
 'use strict';
 
-app.controller('LoginCtrl', function($scope, $ionicPopup) {
-  $scope.emailLogin = function() {
+app.controller('LoginCtrl', function($scope, $state, $ionicPopup){
+  $scope.emailLogin = function(){
     console.log('button was clicked on login');
 
-      $scope.data = {};
+    $scope.user = {};
+    console.log('showing popup');
 
-      // An elaborate, custom popup
-      var myPopup = $ionicPopup.show({
-        templateUrl: 'templates/partials/login.html',
-        title: 'Signin',
-        subTitle: 'Enter your details to login or signup',
-        scope: $scope,
-        buttons: [
-          { text: 'Login' },
-          {
-            text: '<b>Register</b>',
-            type: 'button-positive',
-            onTap: function(e) {
-              if (!$scope.data.wifi) {
-                //don't allow the user to close unless he enters wifi password
-                e.preventDefault();
-              } else {
-                return $scope.data.wifi;
-              }
-            }
+    // An elaborate, custom popup
+    var myPopup = $ionicPopup.show({
+      templateUrl: 'templates/partials/login.html',
+      title: 'Signin',
+      scope: $scope,
+      buttons: [
+        {
+          text: '<b>Login</b>',
+          type: 'button-energized',
+          onTap: function(user) {
+            user = $scope.user;
+            console.log('logon user is', user);
+            // log user in
+
+            // redirect to dashboard
+            $state.go('tab.dash')
           }
-        ]
-      });
-
-      myPopup.then(function(res) {
-        console.log('Tapped!', res);
-      });
+        },
+        {
+          text: '<b>Register</b>',
+          type: 'button-calm',
+          onTap: function(user) {
+            user = $scope.user;
+            console.log('register user is', user);
+            // register user
+            // redirect to dashboard
+            $state.go('tab.dash')
+          }
+        }
+      ]
+    });
   }
 });
