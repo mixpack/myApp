@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('LoginCtrl', function($scope, $state, $ionicPopup){
+app.controller('LoginCtrl', function($scope, $state, $ionicPopup, Auth){
   $scope.emailLogin = function(){
     console.log('button was clicked on login');
 
@@ -32,8 +32,9 @@ app.controller('LoginCtrl', function($scope, $state, $ionicPopup){
             user = $scope.user;
             console.log('register user is', user);
             // register user
+            Auth.register(user);
             // redirect to dashboard
-            $state.go('tab.dash')
+            //$state.go('tab.dash')
           }
         }
       ]
