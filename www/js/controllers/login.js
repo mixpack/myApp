@@ -20,11 +20,15 @@ app.controller('LoginCtrl', function($scope, $state, $ionicPopup, Auth){
             user = $scope.user;
             console.log('logon user is', user);
             // log user in
-
-            // redirect to dashboard
-            $state.go('tab.dash')
+            Auth.login(user).then(function(){
+              console.log('user was logged in successfully');
+              // redirect to dashboard
+              $state.go('tab.dash')
+            });
           }
+
         },
+
         {
           text: '<b>Register</b>',
           type: 'button-calm',
