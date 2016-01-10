@@ -32,9 +32,11 @@ app.controller('LoginCtrl', function($scope, $state, $ionicPopup, Auth){
             user = $scope.user;
             console.log('register user is', user);
             // register user
-            Auth.register(user);
-            // redirect to dashboard
-            //$state.go('tab.dash')
+            Auth.register(user).then(function(){
+              console.log('user was registered successfully');
+              // redirect to dashboard
+              $state.go('tab.dash')
+            });
           }
         }
       ]
