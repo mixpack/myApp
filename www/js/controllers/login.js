@@ -24,6 +24,8 @@ app.controller('LoginCtrl', function($scope, $state, $ionicPopup, Auth){
               console.log('user was logged in successfully');
               // redirect to dashboard
               $state.go('tab.dash')
+            }, function(err){
+              console.log('Error...', err);
             });
           }
 
@@ -40,6 +42,8 @@ app.controller('LoginCtrl', function($scope, $state, $ionicPopup, Auth){
               console.log('user was registered successfully');
               // redirect to dashboard
               $state.go('tab.dash')
+            }, function(err){
+              console.log('Error...', err);
             });
           }
         }
