@@ -18,7 +18,6 @@ app.controller('LoginCtrl', function($scope, $state, $ionicPopup, Auth){
           type: 'button-energized',
           onTap: function(user) {
             user = $scope.user;
-            console.log('logon user is', user);
             // log user in
             Auth.login(user).then(function(){
               console.log('user was logged in successfully');
@@ -36,7 +35,6 @@ app.controller('LoginCtrl', function($scope, $state, $ionicPopup, Auth){
           type: 'button-calm',
           onTap: function(user) {
             user = $scope.user;
-            console.log('register user is', user);
             // register user
             Auth.register(user).then(function(){
               console.log('user was registered successfully');

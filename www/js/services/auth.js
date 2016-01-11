@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('Auth', function(FURL, $firebaseAuth) {
+app.factory('Auth', function(FURL, $firebaseAuth, $state) {
   var ref = new Firebase(FURL);
   var auth = $firebaseAuth(ref);
 
@@ -29,39 +29,14 @@ app.factory('Auth', function(FURL, $firebaseAuth) {
 
 
   }
+
+  auth.$onAuth(function(authData){
+    if(authData){
+      Auth.user = authData;
+      console.log('the user has already logged in');
+      $state.go('tab.dash');
+    }
+  })
   return Auth;
 
 })
-
-/*'use strict';
-
-app.factory('Auth', function(FURL, $firebaseAuth) {
-  var ref = new Firebase(FURL);
-  var auth = $firebaseAuth(ref);
-
-  var Auth = {
-    user: {},
-
-    login: function(user) {
-      console.log('we got to login function');
-      return auth.$authWithPassword({
-        email: user.email;
-        password: user.password
-      });
-    },
-
-    register: function(user) {
-      console.log('we got to register function');
-      return auth.$createUser({
-        email: user.email;
-        password: user.password
-      }).then(function(){
-        console.log('user is saving');
-        return Auth.login(user)
-      })
-    }
-
-  }
-  return Auth;
-
-});*/
