@@ -2,21 +2,23 @@
 
 app.controller('PhotoCtrl', function($scope, $cordovaCamera, $rootScope, $state) {
 
-  var options = {
-    quality: 75,
-    destinationType: Camera.DestinationType.DATA_URL,
-    allowEdit: true,
-    encodingType: Camera.EncodingType.JPEG,
-    popoverOptions: CameraPopoverOptions,
-    targetWidth: 500,
-    targetHeight: 500,
-    saveToPhotoAlbum: false
-  };
-
   $scope.takePhoto = function() {
    console.log('takePhoto was clicked');
+
     //Camera Plugin
-    options.sourceType = Camera.PictureSourceType.CAMERA;
+    var options = {
+      quality: 75,
+      destinationType: Camera.DestinationType.DATA_URL,
+      sourceType: Camera.PictureSourceType.CAMERA,
+      allowEdit: true,
+      encodingType: Camera.EncodingType.JPEG,
+      popoverOptions: CameraPopoverOptions,
+      targetWidth: 500,
+      targetHeight: 500,
+      saveToPhotoAlbum: false
+    };
+
+    // options.sourceType = Camera.PictureSourceType.CAMERA;
 
     $cordovaCamera.getPicture(options).then(function(photo){
       $rootScope.imgURI = "data:image/jpeg;base64," +photo;
@@ -26,6 +28,26 @@ app.controller('PhotoCtrl', function($scope, $cordovaCamera, $rootScope, $state)
   
   $scope.choosePhoto = function(){
     console.log('choosePhoto clicked');
+
+    // Camera Plugin    
+    var options = {
+      quality: 75,
+      destinationType: Camera.DestinationType.DATA_URL,
+      sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+      allowEdit: true,
+      encodingType: Camera.EncodingType.JPEG,
+      popoverOptions: CameraPopoverOptions,
+      targetWidth: 500,
+      targetHeight: 500,
+      saveToPhotoAlbum: false
+    };
+
+    // options.sourceType = Camera.PictureSourceType.PHOTOLIBRARY;
+
+    $cordovaCamera.getPicture(options).then(function(photo){
+      $rootScope.imgURI = "data:image/jpeg;base64," +photo;
+      $state.go('tab.photo-detail');
+    })
   }
 
 });
