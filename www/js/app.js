@@ -7,7 +7,8 @@
 // 'starter.controllers' is found in controllers.js
 var app = angular.module('starter', [
  'ionic',
- 'firebase'
+ 'firebase',
+ 'ngCordova'
 ])
 
 .run(function($ionicPlatform) {
@@ -26,7 +27,7 @@ var app = angular.module('starter', [
   });
 })
 
-  .constant('FURL', 'https://artsy-one.firebaseio.com/')
+.constant('FURL', 'https://artsy-one.firebaseio.com/')
 
 .config(function($stateProvider, $urlRouterProvider) {
 
