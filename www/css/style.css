@@ -12,3 +12,27 @@
 .loginLabel .loginInput{
   padding-left: 20px;
 }
+
+button i.ion-ios-camera:before, .ion-images:before{
+  font-size: 80px;
+}
+
+div.list.card.photoChoice{
+  margin-top: 30%;
+}
+
+div.item.item-divider.title {
+  padding: 5%;
+  background-color: #387ef5; 
+} 
+
+div.item.item-divider.title h2{
+  font-size: 22px;
+  color: white;
+  text-align: center;
+
+}
+
+div.item.item-image.choice {
+  padding: 5%;
+}
