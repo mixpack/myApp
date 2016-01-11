@@ -7,6 +7,18 @@ app.factory('Auth', function(FURL, $firebaseAuth, $state) {
   var Auth = {
     user: {},
 
+    createProfile: function(uid, user){
+      var profile = {
+        name: user.name,
+        email: user.email,
+        gravatar: 'TBD'
+
+      }
+
+      return ref.child('profile').child(uid).set(profile);
+
+    },
+
     login: function(user){
       console.log("we got to login function");
       return auth.$authWithPassword({
@@ -24,6 +36,10 @@ app.factory('Auth', function(FURL, $firebaseAuth, $state) {
       }).then(function(){
         console.log("user is saving");
         return Auth.login(user);
+      }).then(function(data){
+        console.log('the user is ', data);
+        return Auth.createProfile(data.uid, user);
+
       })
     },
 
