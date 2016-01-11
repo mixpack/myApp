@@ -2,6 +2,8 @@
 
 app.factory('Products', function(FURL, $firebaseArray, Auth) {
   var ref = new Firebase(FURL);
+  // show only the top x from the bottom
+  // var products = $firebaseArray(ref.child('products').endAt().limit(3);
   var products = $firebaseArray(ref.child('products'));
 
   var Products = {

@@ -3,43 +3,38 @@
     <ion-list>
 
       <form ng-submit="button(product)" class="list">
+
         <div class="row">
-          <div class="col.10"></div>
-          <div class="col">
-            <label class="item item-input">
+
+          <div class="col col-33">
+              <img style="width: 150px; height: 150px;" ng-src="{{imgURI}}">
+          </div>
+
+          <div class="col col-50 col-offset-10">
+            <label class="item item-input inputUpload">
               <input type="text" ng-model="product.name" placeholder="Product Name">
             </label>
-            <label class="item item-input">
+            <label class="item item-input inputUpload Top">
               <input type="text" ng-model="product.tagline" placeholder="Tagline">
             </label>
-            <label class="item item-input">
-              <input type="text" ng-model="product.description" placeholder="Description">
-            </label>
-            <label class="item item-input">
+            <label class="item item-input inputUpload Top">
               <input type="text" ng-model="product.price" placeholder="Price">
             </label>
-            <label class="item item-input">
-              <img ng-src="{{imgURI}}" style="width: 200px; height: 200px;">
-            </label>
-            <br/>
-            <button type="submit" class="button button-block button-positive">
-              Submit
-            </button>   
           </div>
-          <div class="col.10"></div>
+
         </div>
+
+        <label class="item item-input inputUpload Top">
+          <input type="text" ng-model="product.description" placeholder="Description">
+        </label>          
+        
+        <br/>
+        <button type="submit" class="button button-block button-positive">
+          Submit
+        </button>
+
       </form>
 
-      <!-- <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
-
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
-          Delete
-        </ion-option-button>
-      </ion-item> -->
     </ion-list>
   </ion-content>
 </ion-view>

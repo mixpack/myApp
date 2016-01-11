@@ -36,3 +36,12 @@ div.item.item-divider.title h2{
 div.item.item-image.choice {
   padding: 5%;
 }
+
+.item.inputUpload{
+  border: none;
+
+}
+
+.item.inputUpload.Top{
+  border-top: 1px solid darkgrey;
+}
