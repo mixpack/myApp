@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('Auth', function(FURL, $firebaseAuth, $state) {
+app.factory('Auth', function(FURL, $firebaseAuth, $firebaseObject, $state) {
   var ref = new Firebase(FURL);
   var auth = $firebaseAuth(ref);
 
@@ -52,6 +52,7 @@ app.factory('Auth', function(FURL, $firebaseAuth, $state) {
   auth.$onAuth(function(authData){
     if(authData){
       Auth.user = authData;
+      Auth.user.profile = $firebaseObject(ref.child('profile').child(authData.uid));
       console.log('the user has already logged in');
       $state.go('tab.dash');
     } else {

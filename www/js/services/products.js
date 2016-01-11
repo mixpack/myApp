@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('Products', function(FURL, $firebaseArray) {
+app.factory('Products', function(FURL, $firebaseArray, Auth) {
   var ref = new Firebase(FURL);
   var products = $firebaseArray(ref.child('products'));
 
@@ -11,7 +11,10 @@ app.factory('Products', function(FURL, $firebaseArray) {
 
 
     saveProduct: function(product, image){
+      console.log('the seller is ', Auth.user.profile);
       var newProduct = {
+        seller_name: Auth.user.profile.name,
+        seller_image: Auth.user.profile.gravatar,
         name: product.name,
         tagline: product.tagline,
         description: product.description,
