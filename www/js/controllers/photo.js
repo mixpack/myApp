@@ -10,7 +10,8 @@ app.controller('PhotoCtrl', function($scope, $cordovaCamera, $rootScope, $state)
     popoverOptions: CameraPopoverOptions,
     targetWidth: 500,
     targetHeight: 500,
-    saveToPhotoAlbum: false
+    saveToPhotoAlbum: false,
+    correctOrientation: true
   };
 
   $scope.takePhoto = function() {

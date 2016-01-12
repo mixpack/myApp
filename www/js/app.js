@@ -44,7 +44,7 @@ var app = angular.module('starter', [
   })
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
@@ -91,15 +91,16 @@ var app = angular.module('starter', [
       }
     }
   })
-  .state('tab.chat-detail', {
-    url: '/chats/:chatId',
-    views: {
-      'tab-chats': {
-        templateUrl: 'templates/chat-detail.html',
-        controller: 'ChatDetailCtrl'
-      }
-    }
-  })
+
+  // .state('tab.chat-detail', {
+  //   url: '/chats/:chatId',
+  //   views: {
+  //     'tab-chats': {
+  //       templateUrl: 'templates/chat-detail.html',
+  //       controller: 'ChatDetailCtrl'
+  //     }
+  //   }
+  // })
 
   .state('tab.account', {
     url: '/account',
@@ -109,9 +110,9 @@ var app = angular.module('starter', [
         controller: 'AccountCtrl'
       }
     }
-  });
+  })
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
 
-});
+})
